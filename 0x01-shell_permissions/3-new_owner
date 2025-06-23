@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "betty"
+chown -v betty hello | grep -o betty

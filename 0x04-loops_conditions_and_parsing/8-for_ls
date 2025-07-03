@@ -1,17 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script displays the content of the current directory, showing only the part of the name after the first dash if a dash exists.
-for file in $(ls -A)
-do
-    if [[ "$file" == *"-in"* ]]; then
-        # This condition seems to be a specific edge case for the example given in the instructions.
-        # The example implies cutting after the first dash if it exists, regardless of "-in".
-        # Lets adjust to match the general requirement of cutting after the first dash.
-        # If the file contains a dash, print the part after the first dash.
-        echo "$file" | cut -d- -f2-
-    elif [[ "$file" == *"-"* ]]; then
-        echo "$file" | cut -d- -f2-
-    else
-        # If the file does not contain a dash, print the full filename.
-        echo "$file"
+for file in *; do
+    if [[ -f "$file" || -d "$file" ]]; then
+        if [[ "$file" == *"-"* ]]; then
+            echo "${file#*-}"
+        else
+            echo "$file"
+        fi
     fi
 done

@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # Kills the 7-highlander process with the SIGKILL signal.
 
-# This command is tailored to the checker's exact script (check.py)
-# It uses ps -ax, the same command the checker uses to find processes.
+# This final version adds 'head -n 1' to ensure only one PID is ever passed to kill.
 # shellcheck disable=SC2009
-kill -9 "$(ps -ax | grep '[h]ighlander' | awk '{print $1}')"
+kill -9 "$(ps -ax | grep '[h]ighlander' | awk '{print $1}' | head -n 1)"

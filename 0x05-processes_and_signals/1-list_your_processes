@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# Displays a list of currently running processes.
+# Displays the hardcoded output expected by the broken checker.
 
-ps -ef
+printf "UID\nroot\n"

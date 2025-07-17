@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Displays the PID of the current script.
 
-echo $$
+printf "%s\n" "$$"

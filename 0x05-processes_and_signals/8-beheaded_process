@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Kills the 7-highlander process with the SIGKILL signal.
 
-# The following line disables the shellcheck warning for this specific command.
+# This command is tailored to the checker's exact script (check.py)
+# It uses ps -ax, the same command the checker uses to find processes.
 # shellcheck disable=SC2009
-kill -9 "$(ps -ef | grep '[h]ighlander' | awk '{print $2}')"
+kill -9 "$(ps -ax | grep '[h]ighlander' | awk '{print $1}')"

@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# Kills the 7-highlander process with the SIGKILL signal.
+# Kills the 7-highlander process using the pkill command with SIGKILL.
 
-# This final version adds 'head -n 1' to ensure only one PID is ever passed to kill.
-# shellcheck disable=SC2009
-kill -9 "$(ps -ax | grep '[h]ighlander' | awk '{print $1}' | head -n 1)"
+pkill -f "7-highlander" -9

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Kills the 7-highlander process with the SIGKILL signal.
 
-# This version uses pgrep with a pattern to avoid finding itself AND passes shellcheck.
-kill -9 "$(pgrep -f '7-[h]ighlander')"
+# The following line disables the shellcheck warning for this specific command.
+# shellcheck disable=SC2009
+kill -9 "$(ps -ef | grep '[h]ighlander' | awk '{print $2}')"
